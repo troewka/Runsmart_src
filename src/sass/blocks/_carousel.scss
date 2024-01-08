@@ -1,6 +1,6 @@
 .carousel {
    padding: 80px 0;
-   .carousel__prev, .carousel__next {
+   .carousel__prev, .carousel__next { // Стрілки переключення (ПК версія)
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -16,7 +16,11 @@
       left: auto;
    }
 }
-.tns-outer {
-   width: 750px;
+.tns-outer { // Оболонка (контейнер карусели)
+   width: 730px;
    margin: 0 auto;
+}
+
+.tns-nav { // Кружки переключення (моб версія)
+   display: none;
 }

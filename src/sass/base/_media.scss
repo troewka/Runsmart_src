@@ -2,6 +2,34 @@
    .container {
       padding: 0 15px;
    }
+   .carousel__prev, .carousel__next {
+      display: none;
+   }
+   .tns-nav {
+      display: block;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      button {
+         margin-left: 10px;
+         width: 10px;
+         height: 10px;
+         border-radius: 100%;
+         background-color: $bgc_red;
+      }
+      .tns-nav-active {
+            background-color: #000;
+      }
+   }
+   .catalog {
+      &__content {
+         justify-content: space-evenly;
+      }
+      &__tabs {
+         flex-wrap: wrap;
+      }
+   }
 }
 
 @media (max-width: 768px) {
@@ -67,6 +95,24 @@
    .form {
       margin: 0 auto;
    }
+   .tns-outer {
+      width: 540px;
+      img {
+         width: 100%;
+      }
+   }
+   .carousel {
+      padding: 30px 0;
+   }
+   .catalog {
+      padding: 30px 0 80px 0;
+      &__tabs {
+         margin-top: 15px;
+      }
+      &__tab {
+         margin-top: 5px;
+      }
+   }
 }
 
 @media (max-width: 576px) {
@@ -111,5 +157,8 @@
    .form {
       width: 290px;
       padding-top: 15px;
+   }
+   .tns-outer {
+      width: 300px;
    }
 }
