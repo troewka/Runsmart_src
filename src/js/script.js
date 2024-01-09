@@ -39,4 +39,21 @@ $(document).ready(function () { // jQuery
 
    toggleSlide('.catalog-item__link');
    toggleSlide('.catalog-item__back');
+
+   /-----------------------------------------MODAL (jQuery)-------------------------------------------------------/
+   $('[data-modal=consultation]').on('click', function () { // знаходимо кнопки, по Data-атрибуту (який задали раніше) 
+      $('.lining, #consultation').fadeIn('slow'); // показуємо підложку та модальне вікно "консультація" 
+   });
+   $('.modal__close').on('click', function () { // знаходимо хрестик
+      $('.lining, #consultation, #order, #thanks').fadeOut('slow'); // закриваємо клас та всі ID
+   });
+   //$('.button_item').on('click', function () { // знаходимо кнопки, по класу 
+   //   $('.lining, #order').fadeIn('slow'); // показуємо підложку та модальне вікно "купити" 
+   //});
+   $('.button_item').each(function (i) {
+      $(this).on('click', function () {
+         $('#order .modal__subtitle').text($('.catalog-item__title').eq(i).text())
+         $('.lining, #order').fadeIn('slow');
+      })
+   });
 });
