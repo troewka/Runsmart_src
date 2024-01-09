@@ -41,6 +41,15 @@
    &_mini {
       min-height: 143px;
    }
+   .error { // з validate form
+      border: 1px solid $bgc_red;
+   } 
+   label.error { // з validate form
+      color: $bgc_red;
+      margin: 5px 0 10px 0;
+      border: none;
+      text-align: center;
+   }
 }
 
 #consultation, #order, #thanks, .lining {

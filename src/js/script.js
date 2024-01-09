@@ -56,4 +56,40 @@ $(document).ready(function () { // jQuery
          $('.lining, #order').fadeIn('slow');
       })
    });
+
+   /-----------------------------------------VALIDATE (jQuery)-------------------------------------------------------/
+
+
+
+   function validateForm(form) {
+      $(form).validate({ // Плагин validate
+         rules: {
+            name: {
+               required: true,
+               maxlength: 10
+            },
+            tel: "required",
+            email: {
+               required: true,
+               email: true
+            }
+         },
+         messages: {
+            name: {
+               required: "Введите ваше имя",
+               maxlength: jQuery.validator.format("Не более {0} символов!")
+            },
+            tel: "Введите ваш номер телефона",
+            email: {
+               required: "Введите вашу электронную почту",
+               email: "Ваш электронный адрес должен быть в формате name@domain.com"
+            }
+         }
+      });
+   }
+   validateForm('#consultation-main form');
+   validateForm('#consultation form');
+   validateForm('#order form');
+
+   $('input[name=tel]').mask("+7 (999) 999-99-99"); // знаходимо по тег атрибуту name
 });

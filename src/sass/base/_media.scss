@@ -174,7 +174,7 @@
       }
    }
    .form {
-      width: 290px;
+      width: 100%;
       padding-top: 15px;
    }
    .tns-outer {
@@ -187,5 +187,16 @@
       &__link {
          margin: 0 9px;
       }
+   }
+   .modal {
+      width: 90%;
+      &__close {
+         top: 5px;
+         right: 5px;
+      }
+      &__subtitle {
+         margin-top: 5px;
+      }
+
    }
 }
