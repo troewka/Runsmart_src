@@ -91,5 +91,29 @@ $(document).ready(function () { // jQuery
    validateForm('#consultation form');
    validateForm('#order form');
 
+   /-----------------------------------------Number mask (jQuery)-------------------------------------------------------/
+
    $('input[name=tel]').mask("+7 (999) 999-99-99"); // знаходимо по тег атрибуту name
+
+   /-----------------------------------------POST openserver (jQuery)-------------------------------------------------------/
+
+   $('form').submit(function (e) {
+      e.preventDefault(); // відміняємо стандарне поводження браузера
+
+      if (!$(this).valid()) { // перевірка валідації форм
+         return;
+      }
+
+      $.ajax({ // відправка форми на сервер
+         type: "POST",
+         url: "js/mailer/smart.php",
+         data: $(this).serialize()
+      }).done(function () { // після успішної відправки форм:
+         $(this).find("input").val(""); // очищаємо поля вводу
+         $('#consultation, #order').fadeOut(); // закриваємо модальне вікно (форму відправки)
+         $('.lining, #thanks').fadeIn('slow'); // показуємо модальне вікно з успішною відправкою
+         $('form').trigger('reset'); // перезавантажуємо форму
+      });
+      return false;
+   });
 });
